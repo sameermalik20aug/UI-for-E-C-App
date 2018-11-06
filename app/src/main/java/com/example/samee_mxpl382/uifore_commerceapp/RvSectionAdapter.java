@@ -1,6 +1,7 @@
 package com.example.samee_mxpl382.uifore_commerceapp;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -32,6 +33,7 @@ public class RvSectionAdapter extends RecyclerView.Adapter<RvSectionAdapter.View
     public void onBindViewHolder(@NonNull RvSectionAdapter.ViewHolder viewHolder, int i) {
 
         viewHolder.tv.setText(arrayList.get(i));
+        viewHolder.tv.setPaintFlags(viewHolder.tv.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
     }
 
     @Override

@@ -28,6 +28,8 @@ import android.widget.LinearLayout;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity
     final Fragment fragment3 = new NotificationFragment();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragment1;
-
+    ArrayList<String> arrayList=new ArrayList<>();
     BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,19 +132,32 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_men) {
+            Intent i = new Intent(MainActivity.this,GenericActivity.class);
+            i.putExtra("object","men");
+            startActivity(i);
             // Handle the camera action
         } else if (id == R.id.nav_women) {
-            Intent i = new Intent(MainActivity.this,WomenSection.class);
+            Intent i = new Intent(MainActivity.this,GenericActivity.class);
+            i.putExtra("object","women");
             startActivity(i);
 
         } else if (id == R.id.nav_kids) {
+            Intent i = new Intent(MainActivity.this,GenericActivity.class);
+            i.putExtra("object","kids");
+            startActivity(i);
 
         } else if (id == R.id.nav_electronics) {
-
+            Intent i = new Intent(MainActivity.this,GenericActivity.class);
+            i.putExtra("object","electronics");
+            startActivity(i);
         } else if (id == R.id.nav_sports) {
-
+            Intent i = new Intent(MainActivity.this,GenericActivity.class);
+            i.putExtra("object","sports");
+            startActivity(i);
         } else if (id == R.id.nav_homekitchen) {
-
+            Intent i = new Intent(MainActivity.this,GenericActivity.class);
+            i.putExtra("object","home");
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

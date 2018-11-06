@@ -48,11 +48,11 @@ public class HomeFragment extends Fragment {
         rv=view.findViewById(R.id.rv);
         rv2=view.findViewById(R.id.rv2);
         vp.setAdapter(new vpAdapter(getContext()));
-        arrayList.add(new Product("https://catchthemes.com/demo/catch-responsive/files/2013/03/image-alignment-150x150.jpg","XYZ1",1501));
-        arrayList.add(new Product("https://catchthemes.com/demo/catch-responsive/files/2013/03/image-alignment-150x150.jpg","XYZ2",1502));
-        arrayList.add(new Product("https://catchthemes.com/demo/catch-responsive/files/2013/03/image-alignment-150x150.jpg","XYZ3",1503));
-        arrayList.add(new Product("https://catchthemes.com/demo/catch-responsive/files/2013/03/image-alignment-150x150.jpg","XYZ4",1504));
-        arrayList.add(new Product("https://catchthemes.com/demo/catch-responsive/files/2013/03/image-alignment-150x150.jpg","XYZ5",1505));
+        arrayList.add(new Product("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcD64Hs91VkIn5NkcSbCu_N9lqetT7wGRHKkN_25ezhlnsJ67X","XYZ1",1501));
+        arrayList.add(new Product("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMUswRLFxfYYAWzBjyrVT0fS6Fql6v3bZfZgVS1RCnYJAk4F0l6w","XYZ2",1502));
+        arrayList.add(new Product("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhPDh3BVWf6b21AKsrkUL4etPw2_2bXJMHa1kj0a5qrm-lj-edZg","XYZ3",1503));
+        arrayList.add(new Product("https://images.nike.com/is/image/DotCom/PDP_COPY/144801F_469/converse-chuck-taylor-all-star-high-top-unisex-shoe.jpg","XYZ4",1504));
+        arrayList.add(new Product("https://i.ebayimg.com/images/g/0zsAAOSw0g1ajuTF/s-l300.jpg","XYZ5",1505));
 
         rv.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
         rv.setAdapter(new RecyclerViewAdapter(getContext(),arrayList));
@@ -85,7 +85,7 @@ public class HomeFragment extends Fragment {
         public Object instantiateItem(@NonNull ViewGroup container, int position) {
             View view=layoutInflater.inflate(R.layout.vp_item,container,false);
             ImageView iv=view.findViewById(R.id.iv);
-            Picasso.get().load("https://picsum.photos/200/300/?random").into(iv);
+            Picasso.get().load("http://www.linkcollider.com/img/bloggenerator/3/templatemo_200x100_banner.jpg").into(iv);
             container.addView(view);
             return view;
         }
