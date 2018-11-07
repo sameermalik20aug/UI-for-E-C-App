@@ -1,6 +1,7 @@
 package com.example.samee_mxpl382.uifore_commerceapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -36,12 +37,24 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder viewHolder, int i) {
 
-        Product p = arrayList.get(i);
+        final Product p = arrayList.get(i);
         Log.e("TAG",""+p.getPtitle());
         viewHolder.tvTitle.setText(p.getPtitle());
         viewHolder.tvPrice.setText(""+p.getPrice());
+
         Log.e("TAG2",""+p.getPrice());
         Picasso.get().load(p.getImg()).into(viewHolder.iv);
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(cxt,ProductActivity.class);
+                i.putExtra("title",p.getPtitle());
+                i.putExtra("price",p.getPrice());
+                i.putExtra("image",p.getImg());
+                i.putExtra("desc",p.getDesc());
+                cxt.startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -57,6 +70,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             tvTitle=itemView.findViewById(R.id.tvTitle);
             tvPrice=itemView.findViewById(R.id.tvPrice);
             iv=itemView.findViewById(R.id.iv);
+
         }
     }
 }
