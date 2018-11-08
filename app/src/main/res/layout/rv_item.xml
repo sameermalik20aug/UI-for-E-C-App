@@ -3,16 +3,20 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="160dp"
+    android:layout_margin="5dp"
+    android:background="@drawable/boundary"
     android:layout_height="220dp">
 
     <ImageView
         android:layout_width="150dp"
         android:id="@+id/iv"
+        android:scaleType="centerCrop"
         android:layout_height="150dp" />
 
     <TextView
         android:id="@+id/tvTitle"
         android:textSize="20sp"
+        android:textColor="#333333"
         android:layout_width="150dp"
         android:layout_height="30dp" />
 
@@ -20,6 +24,7 @@
         android:layout_width="150dp"
         android:textSize="20sp"
         android:layout_height="30dp"
+        android:textColor="#333333"
         android:id="@+id/tvPrice"
         />
 </LinearLayout>

@@ -28,6 +28,8 @@ import android.widget.LinearLayout;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -35,9 +37,10 @@ public class MainActivity extends AppCompatActivity
     final Fragment fragment1 = new HomeFragment();
     final Fragment fragment2 = new DashboardFragment();
     final Fragment fragment3 = new NotificationFragment();
+    final Fragment fragment4 = new MoreFragment();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragment1;
-
+    ArrayList<String> arrayList=new ArrayList<>();
     BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +53,7 @@ public class MainActivity extends AppCompatActivity
         searchView=findViewById(R.id.searchview);
         bottomNavigationView=findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
+        fm.beginTransaction().add(R.id.main_container,fragment4,"4").hide(fragment4).commit();
         fm.beginTransaction().add(R.id.main_container, fragment3, "3").hide(fragment3).commit();
         fm.beginTransaction().add(R.id.main_container, fragment2, "2").hide(fragment2).commit();
         fm.beginTransaction().add(R.id.main_container,fragment1, "1").commit();
@@ -78,11 +81,21 @@ public class MainActivity extends AppCompatActivity
                 case R.id.navigation_dashboard:
                     fm.beginTransaction().hide(active).show(fragment2).commit();
                     active = fragment2;
+//                    searchView.setVisibility(View.GONE);
                     return true;
 
                 case R.id.navigation_notifications:
                     fm.beginTransaction().hide(active).show(fragment3).commit();
                     active = fragment3;
+//                    searchView.setVisibility(View.GONE);
+                    return true;
+                    case  R.id.navigation_cart:
+//                        searchView.setVisibility(View.GONE);
+                        return true;
+                case R.id.navigation_more:
+                    fm.beginTransaction().hide(active).show(fragment4).commit();
+                    active = fragment4;
+//                    searchView.setVisibility(View.GONE);
                     return true;
             }
             return false;
@@ -130,19 +143,32 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_men) {
+            Intent i = new Intent(MainActivity.this,GenericActivity.class);
+            i.putExtra("object","men");
+            startActivity(i);
             // Handle the camera action
         } else if (id == R.id.nav_women) {
-            Intent i = new Intent(MainActivity.this,WomenSection.class);
+            Intent i = new Intent(MainActivity.this,GenericActivity.class);
+            i.putExtra("object","women");
             startActivity(i);
 
         } else if (id == R.id.nav_kids) {
+            Intent i = new Intent(MainActivity.this,GenericActivity.class);
+            i.putExtra("object","kids");
+            startActivity(i);
 
         } else if (id == R.id.nav_electronics) {
-
+            Intent i = new Intent(MainActivity.this,GenericActivity.class);
+            i.putExtra("object","electronics");
+            startActivity(i);
         } else if (id == R.id.nav_sports) {
-
+            Intent i = new Intent(MainActivity.this,GenericActivity.class);
+            i.putExtra("object","sports");
+            startActivity(i);
         } else if (id == R.id.nav_homekitchen) {
-
+            Intent i = new Intent(MainActivity.this,GenericActivity.class);
+            i.putExtra("object","home");
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

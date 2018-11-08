@@ -20,24 +20,33 @@
     <ImageView
         android:layout_width="match_parent"
         android:id="@+id/ivwomen"
+        android:scaleType="fitXY"
         android:layout_height="120dp" />
     <ImageView
         android:layout_width="match_parent"
         android:id="@+id/ivmen"
+        android:scaleType="fitXY"
         android:layout_height="150dp" />
     <ImageView
         android:layout_width="match_parent"
         android:id="@+id/ivkids"
+        android:scaleType="fitXY"
         android:layout_height="150dp" />
     <ImageView
         android:layout_width="match_parent"
         android:id="@+id/ivelectronics"
+        android:scaleType="fitXY"
         android:layout_height="150dp" />
     <ImageView
         android:layout_width="match_parent"
         android:id="@+id/ivsports"
+        android:scaleType="fitXY"
         android:layout_height="150dp" />
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:id="@+id/ivhomekitchen"
+        android:scaleType="fitXY"
+        android:layout_height="150dp" />
     </LinearLayout>
     </ScrollView>
 </LinearLayout>

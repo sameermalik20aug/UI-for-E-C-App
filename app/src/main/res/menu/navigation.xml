@@ -18,8 +18,11 @@
 
     <item
         android:icon="@drawable/ic_dashboard_black_24dp"
+        android:id="@+id/navigation_cart"
         android:title="Cart" />
     <item
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="More" />
+        android:title="More"
+        android:id="@+id/navigation_more"
+        />
 </menu>
