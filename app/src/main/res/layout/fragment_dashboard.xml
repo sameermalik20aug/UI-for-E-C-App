@@ -8,45 +8,67 @@
     android:layout_height="match_parent"
     tools:context=".DashboardFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <ImageView
-        android:layout_width="match_parent"
-        android:id="@+id/ivwomen"
-        android:scaleType="fitXY"
-        android:layout_height="120dp" />
-    <ImageView
-        android:layout_width="match_parent"
-        android:id="@+id/ivmen"
-        android:scaleType="fitXY"
-        android:layout_height="150dp" />
-    <ImageView
-        android:layout_width="match_parent"
-        android:id="@+id/ivkids"
-        android:scaleType="fitXY"
-        android:layout_height="150dp" />
-    <ImageView
-        android:layout_width="match_parent"
-        android:id="@+id/ivelectronics"
-        android:scaleType="fitXY"
-        android:layout_height="150dp" />
-    <ImageView
-        android:layout_width="match_parent"
-        android:id="@+id/ivsports"
-        android:scaleType="fitXY"
-        android:layout_height="150dp" />
-    <ImageView
-        android:layout_width="match_parent"
-        android:id="@+id/ivhomekitchen"
-        android:scaleType="fitXY"
-        android:layout_height="150dp" />
-    </LinearLayout>
-    </ScrollView>
+    <!-- TODO: Update blank fragment layout -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:id="@+id/ivwomen"
+                    android:scaleType="fitXY"
+                    android:layout_height="120dp"
+                    android:tint="@color/tint"
+                    android:paddingVertical="2dp"
+                    />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:id="@+id/ivmen"
+                    android:scaleType="fitXY"
+                    android:layout_height="120dp"
+                    android:tint="@color/tint"
+                    android:paddingVertical="2dp"
+                    />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:id="@+id/ivkids"
+                    android:scaleType="fitXY"
+                    android:layout_height="120dp"
+                    android:tint="@color/tint"
+                    android:paddingVertical="2dp"
+                    />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:id="@+id/ivelectronics"
+                    android:scaleType="fitXY"
+                    android:layout_height="120dp"
+                    android:tint="@color/tint"
+                    android:paddingVertical="2dp"
+                    />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:id="@+id/ivsports"
+                    android:scaleType="fitXY"
+                    android:layout_height="120dp"
+                    android:tint="@color/tint"
+                    android:paddingVertical="2dp"
+                    />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:id="@+id/ivhomekitchen"
+                    android:scaleType="fitXY"
+                    android:layout_height="120dp"
+                    android:tint="@color/tint"
+                    android:paddingVertical="2dp"
+                    />
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
 </LinearLayout>
