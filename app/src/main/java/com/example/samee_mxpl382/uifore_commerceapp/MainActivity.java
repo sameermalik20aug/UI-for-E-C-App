@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     RecyclerViewAdapter recyclerViewAdapter;
-    SearchView searchView;
+
     final Fragment fragment1 = new HomeFragment();
     final Fragment fragment2 = new DashboardFragment();
     final Fragment fragment3 = new NotificationFragment();
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 //        vp.setAdapter(new vpAdapter(MainActivity.this));
-        searchView=findViewById(R.id.searchview);
+//        searchView=findViewById(R.id.searchview);
         bottomNavigationView=findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         fm.beginTransaction().add(R.id.main_container,fragment4,"4").hide(fragment4).commit();
@@ -67,19 +67,19 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                return false;
-
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-
-                return false;
-            }
-        });
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String s) {
+//                return false;
+//
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String s) {
+//
+//                return false;
+//            }
+//        });
     }
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {

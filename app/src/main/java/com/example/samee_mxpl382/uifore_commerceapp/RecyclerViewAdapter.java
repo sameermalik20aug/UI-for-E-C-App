@@ -17,8 +17,10 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
+
     Context cxt;
-    ArrayList<Product> arrayList ;
+    ArrayList<Product> arrayList;
+    
 
     public RecyclerViewAdapter(Context cxt, ArrayList<Product> arrayList) {
         this.cxt = cxt;
@@ -35,7 +37,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull final RecyclerViewAdapter.ViewHolder viewHolder, int i) {
 
         final Product p = arrayList.get(i);
         Log.e("TAG",""+p.getPtitle());
@@ -44,7 +46,56 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         Log.e("TAG2",""+p.getPrice());
         Picasso.get().load(p.getImg()).into(viewHolder.iv);
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+//        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(cxt,ProductActivity.class);
+//                i.putExtra("title",p.getPtitle());
+//                i.putExtra("price",p.getPrice());
+//                i.putExtra("image",p.getImg());
+//                i.putExtra("desc",p.getDesc());
+//                cxt.startActivity(i);
+//            }
+//        });
+        viewHolder.iv2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(viewHolder.flag){
+                    Picasso.get().load(R.drawable.heart).into(viewHolder.iv2);
+                    viewHolder.flag=false;
+                }
+                else {
+
+                    Picasso.get().load(R.drawable.heart2).into(viewHolder.iv2);
+                    viewHolder.flag=true;
+                }
+
+
+            }
+        });
+        viewHolder.iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(cxt,ProductActivity.class);
+                i.putExtra("title",p.getPtitle());
+                i.putExtra("price",p.getPrice());
+                i.putExtra("image",p.getImg());
+                i.putExtra("desc",p.getDesc());
+                cxt.startActivity(i);
+            }
+        });
+        viewHolder.tvTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(cxt,ProductActivity.class);
+                i.putExtra("title",p.getPtitle());
+                i.putExtra("price",p.getPrice());
+                i.putExtra("image",p.getImg());
+                i.putExtra("desc",p.getDesc());
+                cxt.startActivity(i);
+            }
+        });
+        viewHolder.tvPrice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(cxt,ProductActivity.class);
@@ -64,13 +115,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvTitle,tvPrice;
-        ImageView iv;
+        Boolean flag = false;
+        ImageView iv,iv2;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle=itemView.findViewById(R.id.tvTitle);
             tvPrice=itemView.findViewById(R.id.tvPrice);
             iv=itemView.findViewById(R.id.iv);
-
+            iv2=itemView.findViewById(R.id.iv2);
         }
     }
 }
