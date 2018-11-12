@@ -2,7 +2,6 @@ package com.example.samee_mxpl382.uifore_commerceapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -16,33 +15,27 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-
-
+public class RecyclerAdapterWishlist extends RecyclerView.Adapter<RecyclerAdapterWishlist.ViewHolder>{
     Context cxt;
     ArrayList<Product> arrayList;
-    ArrayList<Product> wish=new ArrayList<>();
 
-    public RecyclerViewAdapter() {
-    }
-
-    public RecyclerViewAdapter(Context cxt, ArrayList<Product> arrayList) {
+    public RecyclerAdapterWishlist(Context cxt, ArrayList<Product> arrayList) {
         this.cxt = cxt;
         this.arrayList = arrayList;
     }
 
     @NonNull
     @Override
-    public RecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public RecyclerAdapterWishlist.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflate=LayoutInflater.from(cxt);
-        View view = layoutInflate.inflate(R.layout.rv_item,viewGroup,false);
+        View view = layoutInflate.inflate(R.layout.wishlist_item,viewGroup,false);
         ViewHolder viewHolder=new ViewHolder(view);
         return viewHolder;
+
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final RecyclerViewAdapter.ViewHolder viewHolder, int i) {
-
+    public void onBindViewHolder(@NonNull RecyclerAdapterWishlist.ViewHolder viewHolder, final int i) {
         final Product p = arrayList.get(i);
         Log.e("TAG",""+p.getPtitle());
         viewHolder.tvTitle.setText(p.getPtitle());
@@ -50,33 +43,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         Log.e("TAG2",""+p.getPrice());
         Picasso.get().load(p.getImg()).into(viewHolder.iv);
-//        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(cxt,ProductActivity.class);
-//                i.putExtra("title",p.getPtitle());
-//                i.putExtra("price",p.getPrice());
-//                i.putExtra("image",p.getImg());
-//                i.putExtra("desc",p.getDesc());
-//                cxt.startActivity(i);
-//            }
-//        });
+
         viewHolder.iv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(viewHolder.flag){
-                    Picasso.get().load(R.drawable.heart).into(viewHolder.iv2);
-                    wish.add(p);
-                    Log.e("TAG",p.getPtitle());
-                    viewHolder.flag=false;
-                }
-                else {
-
-                    Picasso.get().load(R.drawable.heart2).into(viewHolder.iv2);
-                    viewHolder.flag=true;
-                }
-
-
+                arrayList.remove(i);
+                notifyDataSetChanged();
             }
         });
         viewHolder.iv.setOnClickListener(new View.OnClickListener() {
@@ -87,8 +59,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 i.putExtra("price",p.getPrice());
                 i.putExtra("image",p.getImg());
                 i.putExtra("desc",p.getDesc());
-                i.putExtra("object",p);
-//                i.putExtra("object", (Parcelable) p);
                 cxt.startActivity(i);
             }
         });
@@ -100,7 +70,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 i.putExtra("price",p.getPrice());
                 i.putExtra("image",p.getImg());
                 i.putExtra("desc",p.getDesc());
-                i.putExtra("object",p);
                 cxt.startActivity(i);
             }
         });
@@ -112,10 +81,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 i.putExtra("price",p.getPrice());
                 i.putExtra("image",p.getImg());
                 i.putExtra("desc",p.getDesc());
-                i.putExtra("object",p);
                 cxt.startActivity(i);
             }
         });
+
     }
 
     @Override
@@ -123,12 +92,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return arrayList.size();
     }
 
-    public ArrayList<Product> getCart(){
-        return wish;
-    }
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvTitle,tvPrice;
-        Boolean flag = false;
         ImageView iv,iv2;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

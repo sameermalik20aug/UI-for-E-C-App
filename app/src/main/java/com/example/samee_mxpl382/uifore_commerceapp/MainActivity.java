@@ -9,9 +9,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity
     final Fragment fragment2 = new DashboardFragment();
     final Fragment fragment3 = new NotificationFragment();
     final Fragment fragment4 = new MoreFragment();
+    final Fragment fragment5 = new CartFragment();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragment1;
     ArrayList<String> arrayList=new ArrayList<>();
@@ -50,10 +53,22 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+//        if(getIntent().getExtras()!=null){
+//            Log.e("TAG1","mainActivity");
+//            Product p =getIntent().getExtras().getParcelable("object");
+//            Log.e("TAG1",p.getPtitle());
+//            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//            Fragment fragment = CartFragment.newInstance(p);
+//
+//            ft.replace(R.id.main_container, fragment);
+//            ft.commit();
+//
+//        }
 //        vp.setAdapter(new vpAdapter(MainActivity.this));
 //        searchView=findViewById(R.id.searchview);
         bottomNavigationView=findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        fm.beginTransaction().add(R.id.main_container,fragment5,"5").hide(fragment5).commit();
         fm.beginTransaction().add(R.id.main_container,fragment4,"4").hide(fragment4).commit();
         fm.beginTransaction().add(R.id.main_container, fragment3, "3").hide(fragment3).commit();
         fm.beginTransaction().add(R.id.main_container, fragment2, "2").hide(fragment2).commit();
@@ -105,6 +120,9 @@ public class MainActivity extends AppCompatActivity
                     return true;
                     case  R.id.navigation_cart:
 //                        searchView.setVisibility(View.GONE);
+                        fm.beginTransaction().hide(active).show(fragment5).commit();
+                        active = fragment5;
+
                         return true;
                 case R.id.navigation_more:
                     fm.beginTransaction().hide(active).show(fragment4).commit();
