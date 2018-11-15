@@ -10,18 +10,18 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-    <ImageView
-        android:layout_width="100dp"
-        android:id="@+id/iv"
-        android:scaleType="centerCrop"
-        android:layout_height="80dp" />
+        <ImageView
+            android:layout_width="100dp"
+            android:id="@+id/iv"
+            android:scaleType="centerCrop"
+            android:layout_height="80dp" />
 
         <ImageView
-            android:layout_width="25dp"
+            android:layout_width="15dp"
             android:id="@+id/iv2"
             android:layout_alignEnd="@id/iv"
-            android:background="@drawable/heart2"
-            android:layout_height="25dp" />
+            android:background="@drawable/cancel"
+            android:layout_height="15dp" />
     </RelativeLayout>
     <TextView
         android:id="@+id/tvTitle"
