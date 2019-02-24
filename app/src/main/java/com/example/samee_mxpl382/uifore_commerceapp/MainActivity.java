@@ -25,6 +25,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity
     Fragment active = fragment1;
     ArrayList<String> arrayList=new ArrayList<>();
     BottomNavigationView bottomNavigationView;
+//    FrameLayout main_container;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +84,7 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
 //        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 //            @Override
 //            public boolean onQueryTextSubmit(String s) {

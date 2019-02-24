@@ -7,8 +7,10 @@
     tools:context=".GenericActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
         android:id="@+id/rv"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"></android.support.v7.widget.RecyclerView>
 
 </android.support.constraint.ConstraintLayout>
